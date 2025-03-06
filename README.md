@@ -1,53 +1,57 @@
 # Flutter Rating Bar Demo
 
-A comprehensive demonstration of different rating bar implementations in Flutter using the `flutter_rating_bar` package.
+A comprehensive demonstration of various rating bar implementations in Flutter using the `flutter_rating_bar` package. This project showcases different styles of rating bars including default stars, gauge ratings, credit scores, heart ratings, and emoji ratings.
 
 ## Features
 
-- **Basic Rating Bar**: Simple star-based rating with half ratings
-- **Custom Rating Bar**: Heart-shaped rating icons
-- **Indicator Rating Bar**: Read-only rating display
-- **Color Changing Emoji Rating Bar**: Emoji-based rating with color transitions
-  - 😡 Dark Red (1 star)
-  - 😕 Pink (2 stars)
-  - 😊 Yellow (3 stars)
-  - 😃 Light Green (4 stars)
-  - 🤩 Dark Green (5 stars)
-- **Interactive Rating Input**: Text field input with real-time rating bar update
+- **Multiple Rating Styles**
+  - Default Star Rating
+  - Gauge Rating with Dynamic Score
+  - Credit Score Rating with Color Gradient
+  - Heart Rating with Animation
+  - Emoji Rating
+  - Custom Rating Indicators
+
+- **Interactive Components**
+  - Draggable rating indicators
+  - Real-time score updates
+  - Smooth animations
+  - Responsive layouts
 
 ## Getting Started
 
 ### Prerequisites
 
-- Flutter SDK (latest version)
-- Dart SDK (latest version)
+- Flutter SDK (Latest Version)
+- Dart SDK (Latest Version)
 - Any IDE with Flutter support (VS Code, Android Studio, etc.)
 
 ### Installation
 
 1. Clone the repository:
-```bash
-git clone https://github.com/yourusername/rating_bar_demo.git
-```
+   ```bash
+   git clone https://github.com/yourusername/rating_bar_demo.git
+   ```
 
 2. Navigate to the project directory:
-```bash
-cd rating_bar_demo
-```
+   ```bash
+   cd rating_bar_demo
+   ```
 
 3. Install dependencies:
-```bash
-flutter pub get
-```
+   ```bash
+   flutter pub get
+   ```
 
-4. Run the app:
-```bash
-flutter run
-```
+4. Run the build runner (for code generation):
+   ```bash
+   dart run build_runner build --delete-conflicting-outputs
+   ```
 
-## Dependencies
-
-- [flutter_rating_bar](https://pub.dev/packages/flutter_rating_bar): ^4.0.1
+5. Run the app:
+   ```bash
+   flutter run
+   ```
 
 ## Project Structure
 
@@ -55,43 +59,48 @@ flutter run
 lib/
 ├── configurations/
 │   └── rating_configuration.dart
+├── routes/
+│   └── app_router.dart
 ├── screens/
-│   └── rating_bar_demo_screen.dart
+│   ├── rating_bar_demo_screen.dart
+│   ├── gauge_rating_screen.dart
+│   ├── credit_score_screen.dart
+│   └── heart_rating_screen.dart
+├── widgets/
+│   ├── gauge_rating_bar.dart
+│   ├── credit_score_rating_bar.dart
+│   ├── heart_rating_bar.dart
+│   └── rating_text_field.dart
 ├── utils/
 │   └── rating_utils.dart
-├── widgets/
-│   ├── rating_bar_widget.dart
-│   └── rating_text_field.dart
 └── main.dart
 ```
 
+## Dependencies
+
+- flutter_rating_bar: ^4.0.1
+- auto_route: ^7.8.4
+- flutter_hooks: ^0.20.4
+
 ## Features in Detail
 
-1. **Basic Rating Bar**
-   - Star-based rating system
-   - Supports half ratings
-   - Amber colored stars
+### Gauge Rating
+- Semi-circular gauge with dynamic score display
+- Smooth gradient colors from red to green
+- Interactive draggable indicator
+- Real-time score updates
 
-2. **Custom Rating Bar**
-   - Heart-shaped icons
-   - Red colored hearts
-   - Supports half ratings
+### Credit Score Rating
+- Color-coded segments
+- Score indicator with animation
+- Range-based color feedback
+- Professional design
 
-3. **Indicator Rating Bar**
-   - Read-only rating display
-   - Useful for displaying fixed ratings
-   - Larger size for better visibility
-
-4. **Color Changing Emoji Rating Bar**
-   - Different emojis for each rating level
-   - Color transitions from red to green
-   - Whole number ratings only
-
-5. **Interactive Rating Input**
-   - Text field input (0-5)
-   - Real-time rating bar update
-   - Input validation
-   - Supports decimal values
+### Heart Rating
+- Animated heart icons
+- Customizable heart colors
+- Half-rating support
+- Smooth transitions
 
 ## Contributing
 
@@ -107,5 +116,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Acknowledgments
 
-- Thanks to the creators of the `flutter_rating_bar` package
-- Flutter team for the amazing framework
+- Thanks to the `flutter_rating_bar` package creators
+- Flutter community for continuous support
+- Contributors who helped improve the demo
