@@ -1,106 +1,113 @@
 # Flutter Rating Bar Demo
 
-A comprehensive demonstration of various rating bar implementations in Flutter using the `flutter_rating_bar` package. This project showcases different styles of rating bars including default stars, gauge ratings, credit scores, heart ratings, and emoji ratings.
+A comprehensive Flutter application showcasing various types of rating bars and gauges.
 
 ## Features
 
-- **Multiple Rating Styles**
-  - Default Star Rating
-  - Gauge Rating with Dynamic Score
-  - Credit Score Rating with Color Gradient
-  - Heart Rating with Animation
-  - Emoji Rating
-  - Custom Rating Indicators
+### 1. Default Rating
+- Simple star-based rating system
+- Smooth animation effects
+- Customizable star count and size
 
-- **Interactive Components**
-  - Draggable rating indicators
-  - Real-time score updates
-  - Smooth animations
-  - Responsive layouts
+### 2. Gauge Rating
+- Semi-circular gauge with dynamic needle movement
+- Color gradient indication
+- Real-time score display
+
+### 3. Credit Score Rating
+- Professional credit score visualization
+- Range: 300-850
+- Color-coded segments
+
+### 4. Star Rating
+- Interactive star rating system
+- Half-star support
+- Customizable colors and sizes
+
+### 5. Heart Rating
+- Animated heart-based rating
+- Love meter visualization
+- Smooth transitions
+
+### 6. Emoji Rating
+- Emotion-based rating system
+- Interactive emoji selection
+- Visual feedback
+
+### 7. Mood Rating
+- Semi-circular mood gauge
+- Five distinct mood levels with emojis
+- Interactive needle control
+- Color-coded segments from red to green
+- Real-time mood text display
 
 ## Getting Started
 
 ### Prerequisites
-
-- Flutter SDK (Latest Version)
-- Dart SDK (Latest Version)
-- Any IDE with Flutter support (VS Code, Android Studio, etc.)
+- Flutter SDK (latest version)
+- Dart SDK (latest version)
+- Android Studio / VS Code with Flutter extensions
 
 ### Installation
 
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/rating_bar_demo.git
-   ```
+```bash
+git clone https://github.com/yourusername/rating_bar_demo.git
+```
 
-2. Navigate to the project directory:
-   ```bash
-   cd rating_bar_demo
-   ```
+2. Navigate to project directory:
+```bash
+cd rating_bar_demo
+```
 
 3. Install dependencies:
-   ```bash
-   flutter pub get
-   ```
+```bash
+flutter pub get
+```
 
-4. Run the build runner (for code generation):
-   ```bash
-   dart run build_runner build --delete-conflicting-outputs
-   ```
+4. Run the app:
+```bash
+flutter run
+```
 
-5. Run the app:
-   ```bash
-   flutter run
-   ```
+### Building
+
+To generate route files:
+```bash
+dart run build_runner build --delete-conflicting-outputs
+```
+
+## Dependencies
+
+- auto_route: For navigation
+- flutter_hooks: For state management
+- Other dependencies as listed in pubspec.yaml
 
 ## Project Structure
 
 ```
 lib/
-├── configurations/
-│   └── rating_configuration.dart
-├── routes/
-│   └── app_router.dart
-├── screens/
-│   ├── rating_bar_demo_screen.dart
-│   ├── gauge_rating_screen.dart
-│   ├── credit_score_screen.dart
-│   └── heart_rating_screen.dart
-├── widgets/
-│   ├── gauge_rating_bar.dart
-│   ├── credit_score_rating_bar.dart
-│   ├── heart_rating_bar.dart
-│   └── rating_text_field.dart
-├── utils/
-│   └── rating_utils.dart
-└── main.dart
+  ├── routes/
+  │   └── app_router.dart
+  ├── screens/
+  │   ├── rating_bar_demo_screen.dart
+  │   ├── gauge_rating_screen.dart
+  │   ├── credit_score_screen.dart
+  │   ├── star_rating_screen.dart
+  │   ├── heart_rating_screen.dart
+  │   ├── emoji_rating_screen.dart
+  │   └── mood_rating_screen.dart
+  ├── widgets/
+  │   ├── gauge_rating_bar.dart
+  │   ├── credit_score_rating_bar.dart
+  │   ├── star_rating_bar.dart
+  │   ├── heart_rating_bar.dart
+  │   ├── emoji_rating_bar.dart
+  │   ├── mood_rating_bar.dart
+  │   └── custom_button.dart
+  ├── theme.dart
+  └── main.dart
 ```
-
-## Dependencies
-
-- flutter_rating_bar: ^4.0.1
-- auto_route: ^7.8.4
-- flutter_hooks: ^0.20.4
-
-## Features in Detail
-
-### Gauge Rating
-- Semi-circular gauge with dynamic score display
-- Smooth gradient colors from red to green
-- Interactive draggable indicator
-- Real-time score updates
-
-### Credit Score Rating
-- Color-coded segments
-- Score indicator with animation
-- Range-based color feedback
-- Professional design
-
-### Heart Rating
-- Animated heart icons
-- Customizable heart colors
-- Half-rating support
-- Smooth transitions
 
 ## Contributing
 
@@ -116,6 +123,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Acknowledgments
 
-- Thanks to the `flutter_rating_bar` package creators
-- Flutter community for continuous support
-- Contributors who helped improve the demo
+- Flutter team for the amazing framework
+- Contributors and maintainers
+- Community feedback and support

@@ -9,20 +9,22 @@ class MoodRatingBar extends StatelessWidget {
   const MoodRatingBar({
     super.key,
     required this.score,
-    this.maxScore = 4,  // Changed to 4 since we have 5 segments (0-4)
+    this.maxScore = 4, // Changed to 4 since we have 5 segments (0-4)
     this.onScoreChanged,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: MediaQuery.of(context).size.width * 0.9,
       height: 200,
       child: LayoutBuilder(
         builder: (context, constraints) {
           return GestureDetector(
-            onPanDown: (details) => _handleTouch(context, details.localPosition),
-            onPanUpdate: (details) => _handleTouch(context, details.localPosition),
+            onPanDown: (details) =>
+                _handleTouch(context, details.localPosition),
+            onPanUpdate: (details) =>
+                _handleTouch(context, details.localPosition),
             child: CustomPaint(
               size: Size(constraints.maxWidth, constraints.maxHeight),
               painter: MoodGaugePainter(
@@ -42,25 +44,25 @@ class MoodRatingBar extends StatelessWidget {
     final RenderBox box = context.findRenderObject() as RenderBox;
     final size = box.size;
     final center = Offset(size.width / 2, size.height * 0.9);
-    
+
     // Calculate angle from touch position relative to center
     final touchVector = position - center;
     var angle = math.atan2(touchVector.dy, touchVector.dx);
-    
+
     // Restrict angle to upper half circle (pi to 2pi)
     if (angle < 0) {
       angle = math.pi * 2 + angle;
     }
-    
+
     // Only process if angle is in the valid range (pi to 2pi)
     if (angle >= math.pi && angle <= math.pi * 2) {
       // Map angle from (pi to 2pi) to (0 to 1)
       var normalizedAngle = (angle - math.pi) / math.pi;
-      
+
       // Convert to score (0-4)
       int newScore = (normalizedAngle * maxScore).round();
       newScore = newScore.clamp(0, maxScore);
-      
+
       onScoreChanged!(newScore);
     }
   }
@@ -79,7 +81,7 @@ class MoodGaugePainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final center = Offset(size.width / 2, size.height * 0.9);
     final radius = size.width * 0.45;
-    
+
     // Define colors for each segment
     final colors = [
       const Color(0xFFE53935), // Red
@@ -124,7 +126,7 @@ class MoodGaugePainter extends CustomPainter {
 
     // Draw emoji faces with white background circles
     final emojis = ['😠', '😟', '😐', '🙂', '😊'];
-    final textStyle = TextStyle(
+    const textStyle = TextStyle(
       fontSize: 24,
       color: Colors.black87,
     );
@@ -162,7 +164,7 @@ class MoodGaugePainter extends CustomPainter {
     // Calculate needle angle based on score
     final progress = score / maxScore;
     final needleAngle = math.pi + (math.pi * progress);
-    
+
     // Draw needle with shadow
     final needleLength = radius - 20;
     final shadowPaint = Paint()
@@ -217,4 +219,4 @@ class MoodGaugePainter extends CustomPainter {
 
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) => true;
-} 
+}

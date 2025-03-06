@@ -32,7 +32,10 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
-pubspec.lock
+*.g.dart
+*.gr.dart
+*.freezed.dart
+*.mocks.dart
 
 # Android related
 **/android/**/gradle-wrapper.jar
@@ -113,3 +116,11 @@ app.*.map.json
 *.gr.dart
 *.freezed.dart
 *.mocks.dart
+
+# Environment files
+.env
+.env.*
+
+# Firebase configuration files
+google-services.json
+GoogleService-Info.plist

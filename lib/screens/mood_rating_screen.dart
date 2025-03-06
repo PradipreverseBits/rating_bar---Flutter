@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
+import '../utils/rating_utils.dart';
 import '../widgets/mood_rating_bar.dart';
 import '../theme.dart';
 
@@ -13,23 +14,6 @@ class MoodRatingScreen extends StatefulWidget {
 
 class _MoodRatingScreenState extends State<MoodRatingScreen> {
   int _moodScore = 2; // Middle score initially
-
-  String _getMoodText(int score) {
-    switch (score) {
-      case 0:
-        return 'Very Angry';
-      case 1:
-        return 'Unhappy';
-      case 2:
-        return 'Neutral';
-      case 3:
-        return 'Happy';
-      case 4:
-        return 'Very Happy';
-      default:
-        return 'Neutral';
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +51,7 @@ class _MoodRatingScreenState extends State<MoodRatingScreen> {
               const SizedBox(height: AppStyle.sp32 * 2),
               Center(
                 child: Text(
-                  'Current Mood: ${_getMoodText(_moodScore)}',
+                  'Current Mood: ${RatingUtils.getMoodText(_moodScore)}',
                   style: AppStyle.subheading.copyWith(
                     color: AppStyle.textDark,
                     fontSize: 24,
@@ -90,4 +74,4 @@ class _MoodRatingScreenState extends State<MoodRatingScreen> {
       ),
     );
   }
-} 
+}

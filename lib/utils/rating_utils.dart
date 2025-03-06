@@ -73,4 +73,25 @@ class RatingUtils {
     }
     return null;
   }
+
+
+
+ static String getMoodText(int score) {
+    switch (score) {
+      case 0:
+        return 'Very Angry';
+      case 1:
+        return 'Unhappy';
+      case 2:
+        return 'Neutral';
+      case 3:
+        return 'Happy';
+      case 4:
+        return 'Very Happy';
+      default:
+        return 'Neutral';
+    }
+  }
+
+
 } 
