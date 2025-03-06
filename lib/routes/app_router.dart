@@ -7,6 +7,7 @@ import '../screens/star_rating_screen.dart';
 import '../screens/emoji_rating_screen.dart';
 import '../screens/heart_rating_screen.dart';
 import '../screens/default_rating_screen.dart';
+import '../screens/mood_rating_screen.dart';
 
 part 'app_router.gr.dart';
 
@@ -42,6 +43,10 @@ class AppRouter extends _$AppRouter {
         AutoRoute(
           path: '/default',
           page: DefaultRatingRoute.page,
+        ),
+        AutoRoute(
+          path: '/mood',
+          page: MoodRatingRoute.page,
         ),
       ];
 } 

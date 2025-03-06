@@ -1,25 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
-import '../widgets/gauge_rating_bar.dart';
+import '../widgets/mood_rating_bar.dart';
 import '../theme.dart';
 
 @RoutePage()
-class GaugeRatingScreen extends StatefulWidget {
-  const GaugeRatingScreen({super.key});
+class MoodRatingScreen extends StatefulWidget {
+  const MoodRatingScreen({super.key});
 
   @override
-  State<GaugeRatingScreen> createState() => _GaugeRatingScreenState();
+  State<MoodRatingScreen> createState() => _MoodRatingScreenState();
 }
 
-class _GaugeRatingScreenState extends State<GaugeRatingScreen> {
-  int _gaugeScore = 171;
+class _MoodRatingScreenState extends State<MoodRatingScreen> {
+  int _moodScore = 2; // Middle score initially
+
+  String _getMoodText(int score) {
+    switch (score) {
+      case 0:
+        return 'Very Angry';
+      case 1:
+        return 'Unhappy';
+      case 2:
+        return 'Neutral';
+      case 3:
+        return 'Happy';
+      case 4:
+        return 'Very Happy';
+      default:
+        return 'Neutral';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppStyle.background,
-      appBar:AppBar(
-        title: const Text('Gauge Rating'),
+      appBar: AppBar(
+        title: const Text('Mood Rating'),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
       body: SafeArea(
@@ -30,7 +47,7 @@ class _GaugeRatingScreenState extends State<GaugeRatingScreen> {
             children: [
               const SizedBox(height: AppStyle.sp32 * 2),
               Text(
-                'Interactive Gauge Rating',
+                'How are you feeling today?',
                 style: AppStyle.heading.copyWith(
                   color: AppStyle.textDark,
                   fontSize: 28,
@@ -38,12 +55,11 @@ class _GaugeRatingScreenState extends State<GaugeRatingScreen> {
               ),
               const SizedBox(height: AppStyle.sp32 * 2),
               Center(
-                child: GaugeRatingBar(
-                  score: _gaugeScore,
-                  maxScore: 999,
+                child: MoodRatingBar(
+                  score: _moodScore,
                   onScoreChanged: (newScore) {
                     setState(() {
-                      _gaugeScore = newScore;
+                      _moodScore = newScore;
                     });
                   },
                 ),
@@ -51,7 +67,7 @@ class _GaugeRatingScreenState extends State<GaugeRatingScreen> {
               const SizedBox(height: AppStyle.sp32 * 2),
               Center(
                 child: Text(
-                  'Current Score: $_gaugeScore',
+                  'Current Mood: ${_getMoodText(_moodScore)}',
                   style: AppStyle.subheading.copyWith(
                     color: AppStyle.textDark,
                     fontSize: 24,
@@ -62,7 +78,7 @@ class _GaugeRatingScreenState extends State<GaugeRatingScreen> {
               const SizedBox(height: AppStyle.sp16),
               Center(
                 child: Text(
-                  'Drag the indicator to change the score',
+                  'Drag the needle to change your mood',
                   style: AppStyle.body.copyWith(
                     color: AppStyle.textGreyLight,
                   ),
@@ -74,4 +90,4 @@ class _GaugeRatingScreenState extends State<GaugeRatingScreen> {
       ),
     );
   }
-}
+} 

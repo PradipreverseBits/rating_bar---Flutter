@@ -1,7 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-
 import '../routes/app_router.dart';
+import '../theme.dart';
+import '../widgets/custom_button.dart';
 
 @RoutePage()
 class RatingBarDemoScreen extends StatefulWidget {
@@ -55,66 +56,77 @@ class _RatingBarDemoScreenState extends State<RatingBarDemoScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppStyle.background,
       appBar: AppBar(
-        title: const Text('Rating Bar Demo'),
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: Text(
+          'Rating Bar Demo',
+          style: AppStyle.title.copyWith(
+            color: AppStyle.textDark,
+            fontSize: 24,
+          ),
+        ),
+        centerTitle: true,
+        backgroundColor: AppStyle.background,
+        elevation: 0,
       ),
-      body: SingleChildScrollView(
+      body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              const Text(
-                'Select Rating Type',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
+          padding: const EdgeInsets.all(AppStyle.sp24),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Text(
+                  'Select Rating Type',
+                  style: AppStyle.heading.copyWith(
+                    fontSize: 32,
+                    color: AppStyle.textDark,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 40),
-              _buildRatingButton(
-                context,
-                'Default Rating',
-                Icons.star_border,
-                () => context.router.push(const DefaultRatingRoute()),
-              ),
-              const SizedBox(height: 20),
-              _buildRatingButton(
-                context,
-                'Gauge Rating',
-                Icons.speed,
-                () => context.router.push(const GaugeRatingRoute()),
-              ),
-              const SizedBox(height: 20),
-              _buildRatingButton(
-                context,
-                'Credit Score Rating',
-                Icons.credit_score,
-                () => context.router.push(const CreditScoreRoute()),
-              ),
-              const SizedBox(height: 20),
-              _buildRatingButton(
-                context,
-                'Star Rating',
-                Icons.star,
-                () => context.router.push(const StarRatingRoute()),
-              ),
-              const SizedBox(height: 20),
-              _buildRatingButton(
-                context,
-                'Heart Rating',
-                Icons.favorite,
-                () => context.router.push(const HeartRatingRoute()),
-              ),
-              const SizedBox(height: 20),
-              _buildRatingButton(
-                context,
-                'Emoji Rating',
-                Icons.emoji_emotions,
-                () => context.router.push(const EmojiRatingRoute()),
-              ),
-            ],
+                const SizedBox(height: AppStyle.sp32),
+                _buildRatingButton(
+                  'Default Rating',
+                  Icons.star_border,
+                  () => context.router.push(const DefaultRatingRoute()),
+                ),
+                const SizedBox(height: AppStyle.sp16),
+                _buildRatingButton(
+                  'Gauge Rating',
+                  Icons.speed,
+                  () => context.router.push(const GaugeRatingRoute()),
+                ),
+                const SizedBox(height: AppStyle.sp16),
+                _buildRatingButton(
+                  'Credit Score Rating',
+                  Icons.credit_score,
+                  () => context.router.push(const CreditScoreRoute()),
+                ),
+                const SizedBox(height: AppStyle.sp16),
+                _buildRatingButton(
+                  'Star Rating',
+                  Icons.star,
+                  () => context.router.push(const StarRatingRoute()),
+                ),
+                const SizedBox(height: AppStyle.sp16),
+                _buildRatingButton(
+                  'Heart Rating',
+                  Icons.favorite,
+                  () => context.router.push(const HeartRatingRoute()),
+                ),
+                const SizedBox(height: AppStyle.sp16),
+                _buildRatingButton(
+                  'Emoji Rating',
+                  Icons.emoji_emotions,
+                  () => context.router.push(const EmojiRatingRoute()),
+                ),
+                const SizedBox(height: AppStyle.sp16),
+                _buildRatingButton(
+                  'Mood Rating',
+                  Icons.mood,
+                  () => context.router.push(const MoodRatingRoute()),
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -122,25 +134,17 @@ class _RatingBarDemoScreenState extends State<RatingBarDemoScreen> {
   }
 
   Widget _buildRatingButton(
-    BuildContext context,
     String title,
     IconData icon,
     VoidCallback onPressed,
   ) {
-    return ElevatedButton.icon(
+    return CustomButton(
+      text: title,
       onPressed: onPressed,
-      icon: Icon(icon),
-      label: Text(title),
-      style: ElevatedButton.styleFrom(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 24,
-          vertical: 16,
-        ),
-        textStyle: const TextStyle(
-          fontSize: 18,
-          fontWeight: FontWeight.w500,
-        ),
-      ),
+      icon: icon,
+      height: 56,
+      backgroundColor: Colors.white,
+      textColor: AppStyle.textDark,
     );
   }
 }

@@ -3,6 +3,7 @@ import 'package:auto_route/auto_route.dart';
 import '../widgets/rating_bar_widget.dart';
 import '../configurations/rating_configuration.dart';
 import '../utils/rating_utils.dart';
+import '../theme.dart';
 
 @RoutePage()
 class StarRatingScreen extends StatefulWidget {
@@ -22,54 +23,50 @@ class _StarRatingScreenState extends State<StarRatingScreen> {
         title: const Text('Star Rating'),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text(
-              'Interactive Star Rating',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(AppStyle.sp24),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Interactive Star Rating',
+                style: AppStyle.heading,
               ),
-            ),
-            const SizedBox(height: 40),
-            RatingBarWidget(
-              config: RatingConfiguration(
-                title: '',
-                initialRating: _rating,
-                minRating: 0,
-                itemSize: 50,
-                itemBuilder: (context, index) => Icon(
-                  Icons.star,
-                  color: RatingUtils.getStarColor(index),
+              const SizedBox(height: AppStyle.sp32),
+              RatingBarWidget(
+                config: RatingConfiguration(
+                  title: '',
+                  initialRating: _rating,
+                  minRating: 0,
+                  itemSize: 50,
+                  itemBuilder: (context, index) => Icon(
+                    Icons.star,
+                    color: RatingUtils.getStarColor(index),
+                  ),
+                  onRatingUpdate: (rating) {
+                    setState(() {
+                      _rating = rating;
+                    });
+                  },
                 ),
-                onRatingUpdate: (rating) {
-                  setState(() {
-                    _rating = rating;
-                  });
-                },
               ),
-            ),
-            const SizedBox(height: 40),
-            Text(
-              'Current Rating: ${_rating.toStringAsFixed(1)}',
-              style: TextStyle(
-                fontSize: 20,
-                color: Colors.grey[800],
-                fontWeight: FontWeight.w500,
+              const SizedBox(height: AppStyle.sp32),
+              Text(
+                'Current Rating: ${_rating.toStringAsFixed(1)}',
+                style: AppStyle.subheading.copyWith(
+                  color: AppStyle.textGrey,
+                ),
               ),
-            ),
-            const SizedBox(height: 20),
-            Text(
-              'Tap or drag to change the rating',
-              style: TextStyle(
-                fontSize: 16,
-                color: Colors.grey[600],
+              const SizedBox(height: AppStyle.sp16),
+              Text(
+                'Tap or drag to change the rating',
+                style: AppStyle.body.copyWith(
+                  color: AppStyle.textGreyLight,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
