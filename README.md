@@ -41,6 +41,12 @@ A comprehensive Flutter application showcasing various types of rating bars and 
 - Color-coded segments from red to green
 - Real-time mood text display
 
+## Connect With Me
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pradip-khandla/)
+
+Feel free to connect with me on LinkedIn or follow me on Twitter for more updates and discussions about Flutter development!
+
 ## Getting Started
 
 ### Prerequisites
@@ -57,7 +63,7 @@ git clone https://github.com/PradipreverseBits/rating_bar_demo.git
 
 2. Navigate to project directory:
 ```bash
-cd rating_bar_demo
+cd rating_bar_flutter
 ```
 
 3. Install dependencies:
