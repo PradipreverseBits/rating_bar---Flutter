@@ -45,6 +45,7 @@ A comprehensive Flutter application showcasing various types of rating bars and 
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/pradip-khandla/)
 
+
 Feel free to connect with me on LinkedIn or follow me on Twitter for more updates and discussions about Flutter development!
 
 ## Getting Started
@@ -58,7 +59,7 @@ Feel free to connect with me on LinkedIn or follow me on Twitter for more update
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/PradipreverseBits/rating_bar_demo.git
+git clone https://github.com/PradipreverseBits/rating_bar_flutter.git
 ```
 
 2. Navigate to project directory:
